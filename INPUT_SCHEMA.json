@@ -1,0 +1,29 @@
+{
+    "title": "Scrapy Executor",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "CompanyId": {
+            "title": "Company ID",
+            "type": "string",
+            "description": "Get the company id from the IMDB URL for ex:https://www.imdb.com/search/title/?companies=co0144901",
+            "prefill": "co0144901",
+            "default": "",
+            "editor": "textfield"
+        },
+        "Testing": {
+                    "title": "Testing",
+                    "type": "boolean",
+                    "description": "Enable testing mode for scraping only 50 movies.",
+                    "default": false
+        },
+        "proxyConfig": {
+            "title": "Proxy",
+            "type": "object",
+            "description": "Proxy servers let you bypass website protections, avoid IP address blocking and view content for other countries. Try to use the proxy if you are experiencing timeout errors.",
+            "default": {},
+            "editor": "proxy"
+        }
+    },
+    "required": ["CompanyId"]
+}
