@@ -3,11 +3,11 @@
     "type": "object",
     "schemaVersion": 1,
     "properties": {
-        "CompanyId": {
-            "title": "Company ID",
+        "keyword": {
+            "title": "Keyword",
             "type": "string",
-            "description": "Get the company id from the IMDB URL for ex:https://www.imdb.com/search/title/?companies=co0144901",
-            "prefill": "co0144901",
+            "description": "Specify a keyword to search for the quote.",
+            "prefill": "You're gonna need a bigger boat.",
             "default": "",
             "editor": "textfield"
         },
@@ -25,5 +25,5 @@
             "editor": "proxy"
         }
     },
-    "required": ["CompanyId"]
+    "required": ["Keyword"]
 }
