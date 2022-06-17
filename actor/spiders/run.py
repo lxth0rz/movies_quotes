@@ -82,9 +82,9 @@ class ImdbMoviesByCompanyNameScraper(Spider):
         else:
             for movie in movies:
 
-                dddd = movie.extract()
-                ddddddd = dddd.replace('\n', ' ')
-                extract each quote
+                # dddd = movie.extract()
+                # ddddddd = dddd.replace('\n', ' ')
+                # extract each quote
 
                 title = movie.xpath(self.xpath_dict['title'])
                 if title and len(title) > 0:
