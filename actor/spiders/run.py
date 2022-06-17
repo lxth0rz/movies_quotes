@@ -22,7 +22,7 @@ class ImdbMoviesByCompanyNameScraper(Spider):
 
     logger = None
 
-    keyword = 'love'         # required input
+    keyword = 'love'     # required input
     testing = False      # optional for testing - scraping only 50 movies
 
     imdb_search_quotes_url = 'https://www.imdb.com/search/title-text/?quotes={0}'
@@ -52,7 +52,7 @@ class ImdbMoviesByCompanyNameScraper(Spider):
 
         self.logger = logging.getLogger()
 
-        if 'upwork_2' not in self.directory_path:
+        if 'Dropbox' not in self.directory_path:
 
             # Initialize the main ApifyClient instance
             client = ApifyClient(os.environ['APIFY_TOKEN'], api_url=os.environ['APIFY_API_BASE_URL'])
@@ -140,7 +140,7 @@ class ImdbMoviesByCompanyNameScraper(Spider):
                          'poster_url': poster_url,
                          'big_poster_url': big_poster_url, }
 
-                if 'upwork_2' not in self.directory_path:
+                if 'Dropbox' not in self.directory_path:
                     apify.pushData(movie)
                 else:
                     yield movie
