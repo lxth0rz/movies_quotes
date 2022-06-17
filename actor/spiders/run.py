@@ -82,9 +82,15 @@ class ImdbMoviesByCompanyNameScraper(Spider):
         else:
             for movie in movies:
 
-                # dddd = movie.extract()
-                # ddddddd = dddd.replace('\n', ' ')
-                # extract each quote
+                box_text = movie.extract()
+                box_text = box_text.replace('\n', ' ')
+                box_text = re.findall('<h4>.+?<\/div>', box_text)
+                box_text = re.sub('<h4>.+?<br.+?>', '', box_text[0])
+                box_text = re.sub('<b.*?>|</b>', '', box_text)
+                box_text = re.sub('<a.+', '', box_text)
+                box_text = box_text.strip()
+                box_text = box_text.split('<hr>')
+                quotes = [x.strip() for x in box_text]
 
                 title = movie.xpath(self.xpath_dict['title'])
                 if title and len(title) > 0:
@@ -131,6 +137,7 @@ class ImdbMoviesByCompanyNameScraper(Spider):
 
                 movie = {'id': movie_id,
                          'title': title,
+                         'quotes': quotes,
                          'year': year,
                          'runtime': runtime,
                          'genre': genre,
