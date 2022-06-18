@@ -22,7 +22,7 @@ class ImdbMoviesByCompanyNameScraper(Spider):
 
     logger = None
 
-    keyword = 'love'     # required input
+    keyword = 'May the Force be with you'     # required input
     testing = False      # optional for testing - scraping only 50 movies
 
     imdb_search_quotes_url = 'https://www.imdb.com/search/title-text/?quotes={0}'
@@ -37,7 +37,6 @@ class ImdbMoviesByCompanyNameScraper(Spider):
                   'runtime': './/span[@class="runtime"]/text()',
                   'genre': './/span[@class="genre"]/text()',
                   'rating': './/div[@class="ratings-bar"]/.//strong/text()',
-                  'stars': './/div[@class="ratings-bar"]/.//strong/text()',
                   'votes': './/p[@class="sort-num_votes-visible"]/span/text()',
                   'next_overview': './/a[contains(text(), "Next")]/@href',
                   'companies_rows': './/table[@class="findList"]/.//tr',
@@ -128,13 +127,6 @@ class ImdbMoviesByCompanyNameScraper(Spider):
                 if rating and len(rating) > 0:
                     rating = rating.extract()[0].strip()
 
-                stars = movie.xpath(self.xpath_dict['stars'])
-                stars = stars.extract()
-                if stars and len(stars) > 0:
-                    stars = stars[0].strip()
-                else:
-                    stars = ''
-
                 movie = {'id': movie_id,
                          'title': title,
                          'quotes': quotes,
@@ -142,7 +134,6 @@ class ImdbMoviesByCompanyNameScraper(Spider):
                          'runtime': runtime,
                          'genre': genre,
                          'rating': rating,
-                         'stars': stars,
                          'url': movie_url,
                          'poster_url': poster_url,
                          'big_poster_url': big_poster_url, }

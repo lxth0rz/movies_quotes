@@ -7,7 +7,7 @@
             "title": "Keyword",
             "type": "string",
             "description": "Specify a keyword to search for the quote.",
-            "prefill": "You're gonna need a bigger boat.",
+            "prefill": "May the Force be with you.",
             "default": "",
             "editor": "textfield"
         },
