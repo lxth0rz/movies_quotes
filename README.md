@@ -1,7 +1,7 @@
 # Movies Quotes
 
 This actor allows you to collect quotes from movies by a keyword of your choice.
-
+ 
 ## Input configuration
 
 The actor has the following input options:
