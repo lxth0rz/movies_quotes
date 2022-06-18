@@ -6,15 +6,15 @@
         "keyword": {
             "title": "Keyword",
             "type": "string",
-            "description": "Specify a keyword to search for the quote.",
+            "description": "Specify a keyword(s) to search for the quote.",
             "prefill": "May the Force be with you.",
             "default": "",
             "editor": "textfield"
         },
-        "Testing": {
-                    "title": "Testing",
+        "First 1000 Only": {
+                    "title": "First1000",
                     "type": "boolean",
-                    "description": "Enable testing mode for scraping only 50 movies.",
+                    "description": "Only extract quotes from first 1000 movies then stops the actor.",
                     "default": false
         },
         "proxyConfig": {

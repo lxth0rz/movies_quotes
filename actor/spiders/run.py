@@ -23,7 +23,8 @@ class ImdbMoviesByCompanyNameScraper(Spider):
     logger = None
 
     keyword = 'May the Force be with you'     # required input
-    testing = False      # optional for testing - scraping only 50 movies
+    first_1000 = False      # optional for testing - scraping only 50 movies
+    movies_counter = 0
 
     imdb_search_quotes_url = 'https://www.imdb.com/search/title-text/?quotes={0}'
 
@@ -65,7 +66,7 @@ class ImdbMoviesByCompanyNameScraper(Spider):
             self.logger.info(actor_input)
 
             self.keyword = actor_input["keyword"]
-            self.testing = actor_input["Testing"]
+            self.first_1000 = actor_input["First1000"]
 
         start_url = self.imdb_search_quotes_url.format(self.keyword)
 
@@ -81,6 +82,9 @@ class ImdbMoviesByCompanyNameScraper(Spider):
         else:
             for movie in movies:
 
+                self.movies_counter += 1
+
+                # extract quotes
                 box_text = movie.extract()
                 box_text = box_text.replace('\n', ' ')
                 box_text = re.findall('<h4>.+?<\/div>', box_text)
@@ -90,6 +94,7 @@ class ImdbMoviesByCompanyNameScraper(Spider):
                 box_text = box_text.strip()
                 box_text = box_text.split('<hr>')
                 quotes = [x.strip() for x in box_text]
+                asdfasd = [x for x in quotes if self.keyword.lower() in x.lower()]
 
                 title = movie.xpath(self.xpath_dict['title'])
                 if title and len(title) > 0:
@@ -138,12 +143,13 @@ class ImdbMoviesByCompanyNameScraper(Spider):
                          'poster_url': poster_url,
                          'big_poster_url': big_poster_url, }
 
-                if 'Dropbox' not in self.directory_path:
-                    apify.pushData(movie)
-                else:
-                    yield movie
+                if (self.first_1000 and self.movies_counter < 1000) or not self.first_1000:
+                    if 'Dropbox' not in self.directory_path:
+                        apify.pushData(movie)
+                    else:
+                        yield movie
 
-        if not self.testing:
+        if (self.first_1000 and self.movies_counter < 1000) or not self.first_1000:
             next_ov = response.xpath(self.xpath_dict['next_overview'])
             if next_ov and len(next_ov) > 0:
                 next_ov = next_ov.extract()[0].strip()
