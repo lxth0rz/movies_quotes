@@ -6,7 +6,7 @@ This actor allows you to collect quotes from movies by a keyword of your choice.
 
 The actor has the following input options:
 
-- **Keyword** - type the keyword(s) you would like to find movies quotes for.
+- **Keyword** - type the keyword(s) you would like to a quotes for.
 - **Proxy** - Optionally, select a proxy to be used by the actor,
   in order to avoid IP address-based blocking by the target website.
   The actor automatically executes all the Scrapy's HTTP(S) requests through the proxy.
@@ -19,7 +19,7 @@ Each record represent a title. The following fields is the current data you will
 {
     "id": "tt4574334",
     "title": "Stranger Things",
-    "quotes": [],
+    "quotes": ["Friends don't lie"],
     "year": "2016–",
     "runtime": "51 min",
     "genre": "Drama, Fantasy, Horror",
@@ -31,4 +31,4 @@ Each record represent a title. The following fields is the current data you will
 ```
 
 If you have any problem or anything does not work,
-please file an [issue on Apify](https://console.apify.com/actors/LWCaRh1QoRdiI8siz#/issues).
+please file an [issue on Apify](https://console.apify.com/actors/ZZQ9zLu3lwula6mup#/issues).
