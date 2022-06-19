@@ -11,8 +11,8 @@
             "default": "",
             "editor": "textfield"
         },
-        "First 1000 Only": {
-                    "title": "First1000",
+        "First1000": {
+                    "title": "First 1000 movies only",
                     "type": "boolean",
                     "description": "Only extract quotes from first 1000 movies then stops the actor.",
                     "default": false
