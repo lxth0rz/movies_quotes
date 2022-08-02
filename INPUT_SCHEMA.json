@@ -7,15 +7,15 @@
             "title": "Keyword",
             "type": "string",
             "description": "Specify a keyword(s) to search for the quote.",
-            "prefill": "May the Force be with you.",
-            "default": "",
+            "prefill": "Carpe diem",
+            "default": "Carpe diem",
             "editor": "textfield"
         },
         "First1000": {
                     "title": "First 1000 movies only",
                     "type": "boolean",
                     "description": "Only extract quotes from first 1000 movies then stops the actor.",
-                    "default": false
+                    "default": true
         },
         "proxyConfig": {
             "title": "Proxy",

@@ -9,3 +9,8 @@ jobdir.tgz
 .eslintrc.json
 *.csv
 /Outputs-20220617-235700.csv
+apify/__pycache__/__init__.cpython-37.pyc
+actor/__pycache__/__init__.cpython-37.pyc
+actor/__pycache__/settings.cpython-37.pyc
+actor/spiders/__pycache__/__init__.cpython-37.pyc
+actor/spiders/__pycache__/run.cpython-37.pyc
